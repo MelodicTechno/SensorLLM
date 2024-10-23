@@ -10,8 +10,8 @@ import pickle
 import logging
 from dataclasses import dataclass
 
-from sensorllm.data.utils import generate_chat_template, preprocess, preprocess_cls, get_token_list
-from sensorllm.model.chronos_model import *
+from data.utils import generate_chat_template, preprocess, preprocess_cls, get_token_list
+from model.chronos_model import *
 import transformers
 
 import torch

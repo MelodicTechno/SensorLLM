@@ -2,14 +2,14 @@ import os
 import json
 import re
 from transformers import AutoTokenizer, AutoConfig
-from sensorllm.model.chronos_model import *
+from model.chronos_model import *
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from sensorllm.model import *
-from sensorllm.data import UniChannelTimeSeriesDataset2
-from sensorllm.data.utils import generate_chat_template
-from sensorllm.utils import disable_torch_init
+from model import *
+from data import UniChannelTimeSeriesDataset
+from data.utils import generate_chat_template
+from utils import disable_torch_init
 import warnings
 import argparse
 
@@ -48,7 +48,7 @@ def parse_config():
 
 def load_dataset(data_path, qa_path, chronos_tokenizer):
     print("Loading validation datasets.")
-    dataset = UniChannelTimeSeriesDataset2(
+    dataset = UniChannelTimeSeriesDataset(
         data_path=data_path,
         qa_path=qa_path,
         tokenizer=None,  # * load ts and QA
